@@ -6,7 +6,6 @@ router.get('/', async (ctx, next) => {
 })
 
 router.get('/word', async (ctx, next) => {
-  console.log(ctx.query)
   let part = ctx.query.part || 'reading'
   let num = ctx.query.num || 1
   let words = require(`../vocabulary/${part}/${part}${num}`)
