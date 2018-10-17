@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .container#app
+    h1 #{word.word}
+    p #{word.translation}
+    audio(src=wordUrl, autoplay, controls)
+    br
+    button.btn.btn-primary#next 下一个
+
+  script.
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        word: {
+          word: '',
+          translation: ''
+        },
+        audioUrl: ''
+      }
+      method:
+    })
+    //- $('#next').click(function() {
+    //-   window.location.reload()
+    //- })
+
+    //- document.onkeyup = function (e) {
+    //-   if (window.event) e = window.event;
+    //-   var code = e.charCode || e.keyCode;
+    //-   if (code == 13) {
+    //-     window.location.reload()
+    //-   }
+    //- }
