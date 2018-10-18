@@ -27,7 +27,7 @@ export default {
         translation: true
       },
       defaultCover: {
-        word: true,
+        word: false,
         translation: true
       }
     };
@@ -38,7 +38,7 @@ export default {
   methods: {
     getWord() {
       axios.get("/word", {
-          params: { part: 'listening', num: 2 },
+          params: { part: 'reading', num: 2 },
         }).then(res => {
         this.cover.word = this.defaultCover.word
         this.cover.translation = this.defaultCover.translation

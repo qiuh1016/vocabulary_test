@@ -8,7 +8,7 @@ router.get('/', async (ctx, next) => {
 router.get('/word', async (ctx, next) => {
   let part = ctx.query.part || 'reading'
   let num = ctx.query.num || 1
-  let words = require(`../vocabulary/${part}/${part}${num}`)
+  let words = require(`../vocabulary/${part}/${num}`)
 
   let random = util.randomNumber(0, words.length - 1)
   let word = words[random]
