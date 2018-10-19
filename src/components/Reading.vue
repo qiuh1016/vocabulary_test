@@ -1,5 +1,19 @@
 <template>
   <div class="page">
+    <!-- <input class="input" v-model="part" placeholder="part"> -->
+    <select class="select" v-model="part" >
+      <option value="reading">阅读</option>
+      <option value="listening">听力</option>
+      <option value="leci">乐词</option>
+    </select>
+    <input class="input" v-model="num" placeholder="num">
+    <br>
+    <br>
+    <!-- <br>
+    覆盖单词<input type="checkbox" :checked='defaultCover.word'>
+    覆盖翻译<input type="checkbox" :checked='defaultCover.translation'>
+    <br>
+    <br> -->
     <h1 class="word" :class="cover.word ? 'cover' : ''" @click="openWordCover">{{word.word}}</h1>
     <p class="translation" :class="cover.translation ? 'cover' : ''" @click="openTranslateCover">{{word.translation}}</p>
     <audio :src='audioUrl' autoplay controls></audio>
@@ -17,6 +31,8 @@ export default {
   data() {
     return {
       message: "Hello Vue!",
+      part: 'reading',
+      num: 0,
       word: {
         word: "",
         translation: ""
@@ -38,7 +54,7 @@ export default {
   methods: {
     getWord() {
       axios.get("/word", {
-          params: { part: 'reading', num: 2 },
+          params: { part: this.part, num: this.num },
         }).then(res => {
         this.cover.word = this.defaultCover.word
         this.cover.translation = this.defaultCover.translation
@@ -59,6 +75,24 @@ export default {
   .page {
     justify-content: center;
     align-items: center;
+  }
+
+ .select {
+    width: 130px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 0 5px; 
+    background: #fff;
+  }
+
+  .input {
+    width: 120px;
+    height: 28px;
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 0 5px; 
+    background: #fff;
   }
   .next {
     width: 120px;

@@ -11,6 +11,7 @@ router.get('/word', async (ctx, next) => {
   let words = require(`../vocabulary/${part}/${num}`)
 
   let random = util.randomNumber(0, words.length - 1)
+  console.log(random)
   let word = words[random]
   ctx.body ={
     word: word,
