@@ -1,4 +1,5 @@
 module.exports = [
+  // 租房住宿场景
   { word: 'tenant', translation: '房客' },
   { word: 'landlord', translation: '房东' },
   { word: 'veterinarian', translation: '兽医' },

@@ -1,4 +1,5 @@
 module.exports = [
+  // 作业讨论场景
   { word: 'course', translation: '课程' },
   { word: 'subject', translation: '科目' },
   { word: 'education', translation: '教育' },
